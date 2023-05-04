@@ -23,4 +23,11 @@ class Router
                 call_user_func($r[$rota]);
         }
     }
+    
+    public static function navigate()
+    {
+        $rota = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        
+        self::get($rota);
+    }
 }
